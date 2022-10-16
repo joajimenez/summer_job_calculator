@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="/js/app.js" type="module" defer></script>
+    <title>SWORKS: Calcula Tu Summer.</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="intro-container">
+        <div class="header">
+          <h1>Calcula tu summer<span class="period-span">!</span></h1>
+          <p class="subtitle">
+            Descubre cuanto dinero podrás hacer en tu summer job este verano.
+          </p>
+          <p>
+            Solo introduce la información que se encuentra en tu formulario de
+            trabajo y déjanos el calculo pesado a nosotros.
+          </p>
+        </div>
+      </div>
+      <main>
+        <div class="form_container">
+          <form class="form">
+            <label for="hours">Horas a la semana</label>
+            <input type="number" name="hours" id="hours" placeholder="40" />
+
+            <label for="rate">Pago por hora</label>
+            <input type="number" name="rate" id="rate" placeholder="12" />
+
+            <label for="state">Estado</label>
+            <select title="state" id="state" name="state"></select>
+
+            <label for="housing">Pago semanal de vivienda?</label>
+            <input type="number" name="housing" id="housing" value="0" />
+
+            <label for="transport">Costo diario de transporte</label>
+            <input type="number" name="transport" id="transport" value="0" />
+
+            <!-- <label for="food">Costo de comida por día</label>
+            <input type="number" name="food" id="food" /> -->
+            <br />
+
+            <button type="submit" class="calc_btn">Calcular</button>
+          </form>
+        </div>
+        <div class="results-display-container">
+          <div class="results_container">
+            <h2>Resultados</h2>
+            <div class="results">
+              <div class="income-container">
+                <h3>Ingresos semanales.</h3>
+                <p class="reg_hours">
+                  Horas regulares: <span class="reg_hours_span"></span>
+                </p>
+                <p class="overtime_hours">
+                  Horas extras:<span class="overtime_hours_span"></span>
+                </p>
+              </div>
+              <div class="expenses-container">
+                <h3>Gastos semanales.</h3>
+                <p class="state_taxes">
+                  Impuesto Estatal: <span class="state_taxes_span"></span>
+                </p>
+                <p class="federal_taxes">
+                  Impuesto Federal:
+                  <span class="federal_taxes_span"></span>
+                </p>
+                <p class="food">
+                  Comida (Estimado según el IRS):
+                  <span class="food_span"></span>
+                </p>
+                <p class="housing">
+                  Pago de vivienda:
+                  <span class="housing_span"></span>
+                </p>
+                <p class="transport">
+                  Transporte:
+                  <span class="transport_span"></span>
+                </p>
+                <p class="other">
+                  Otros:
+                  <span class="others_span"></span>
+                </p>
+              </div>
+              <div class="gross-container">
+                <h3>Montos Brutos.</h3>
+                <p class="gross_income">
+                  Ingreso bruto:
+                  <span class="gross_income_span"></span>
+                </p>
+                <p class="gross_expenses">
+                  Gasto bruto:
+                  <span class="gross_expenses_span"></span>
+                </p>
+              </div>
+              <div class="net_container">
+                <h3>Monto Neto.</h3>
+                <p class="net_income">
+                  Ingreso neto:
+                  <span class="net_income_span"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
