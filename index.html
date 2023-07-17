@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <header class="header">
+      <h1>SummerCash.</h1>
+      <h2>The summer job earnings calculator.</h2>
+    </header>
     <div class="container">
-      <header class="header">
-        <h1>SummerCash.</h1>
-        <h2>The summer job earnings calculator.</h2>
-      </header>
       <div class="cta-text-container">
         <h1>Unlock Your Summer Earnings Potential!</h1>
         <p>
@@ -49,13 +49,39 @@
           >Estimate Your Earnings Now</a> -->
       </div>
 
-      <div class="input-container">
-        <label for="rate">Hourly rate (🤑)</label>
-        <input type="number" id="rate" placeholder="7.25" value="7.25" />
-        <label for="hours">Hours worked per week (⌚)</label>
-        <input type="number" id="hours" placeholder="32" value="32" />
-        <label for="state">State (🇺🇸)</label>
-        <select id="state"></select>
+      <div class="input-group-container">
+        <div class="input-group">
+          <label for="rate">Hourly rate (🤑)</label>
+          <input type="number" id="rate" placeholder="7.25" value="7.25" />
+        </div>
+        <div class="input-group">
+          <label for="hours">Hours worked per week (⌚)</label>
+          <input type="number" id="hours" placeholder="32" value="32" />
+        </div>
+        <div class="input-group">
+          <label for="state">State (🇺🇸)</label>
+          <select id="state"></select>
+        </div>
+
+        <!-- TODO: Add this later -->
+        <!-- <div class="input-group">
+          <label for="secondJob">Second job (💼)</label>
+          <select id="secondJob">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="secondJobHours">Hours per week (⌚)</label>
+          <input
+            type="number"
+            id="secondJobHours"
+            placeholder="10"
+            value="10"
+          />
+        </div> -->
+      </div>
+      <div class="btn-container">
         <button id="calcBtn">Calculate</button>
       </div>
       <div class="results-container hidden">
@@ -101,34 +127,34 @@
               >$</span
             >
           </p>
-
-          <ul id="disclaimer">
-            Disclaimer:
-            <li>
-              The calculations on this website are estimates based on tax rates
-              as of January 2023 and data from the internet. These rates are
-              subject to change, so please check the IRS website for the latest
-              information.
-            </li>
-            <li>
-              Our calculator does not consider both 401(k) and IRA deductions
-              due to the tax law limitations.
-            </li>
-            <li>
-              You should speak with a tax professional to determine your
-              specific tax situation.
-            </li>
-          </ul>
+          <div class="disclaimer-container">
+            <ul id="disclaimer">
+              Disclaimer:
+              <li>
+                The calculations on this website are estimates based on tax
+                rates as of January 2023 and data from the internet. These rates
+                are subject to change, so please check the IRS website for the
+                latest information.
+              </li>
+              <li>
+                Our calculator does not consider both 401(k) and IRA deductions
+                due to the tax law limitations.
+              </li>
+              <li>
+                You should speak with a tax professional to determine your
+                specific tax situation.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <hr />
+      <footer>
+        Made with ❤️ by
+        <a href="https://github.com/joajimenez">Joan Jimenez</a> in the
+        Dominican Republic.
+      </footer>
     </div>
-
-    <footer>
-      Made with ❤️ by
-      <a href="https://github.com/joajimenez">Joan Jimenez</a> in the Dominican
-      Republic.
-    </footer>
 
     <script src="./js/app.js" type="module"></script>
   </body>

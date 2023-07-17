@@ -51,7 +51,7 @@ h6 {
   font-family: 'Rubik', sans-serif;
 }
 
-.input-container {
+.input-group-container {
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -66,6 +66,11 @@ select {
   margin-bottom: 1rem;
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
 button {
   background-color: #ff4800;
   color: #ffffff;
@@ -76,15 +81,18 @@ button {
   border-radius: 0.4rem;
   font-weight: bolder;
   font-size: larger;
+  width: 80%;
 }
 
 .results-container {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 #disclaimer {
+  padding: 10px;
   margin-top: 1rem;
   font-size: 0.6rem;
   color: #b1b1b1c9;
@@ -102,6 +110,60 @@ button {
 }
 
 footer {
-  padding: 5px;
+  padding: 10px;
   margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 80%;
+    display: flex;
+  }
+  .cta-text-container {
+    display: flex;
+
+    justify-content: space-evenly;
+  }
+  .input-group-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  input,
+  select {
+    width: 80%;
+  }
+
+  .results-container {
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 1rem;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-container > #calcBtn {
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+
+  .inputs-container-el {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .results-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #disclaimer {
+    margin-top: 0;
+  }
 }
