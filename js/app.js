@@ -1,50 +1,83 @@
-import { inputUI } from './UI.js';
-import { resultUI } from './UI.js';
-import { statesNames } from './data.js';
-import { stateTaxes } from './data.js';
-import { calculateEarnings } from './functions.js';
+import { calculateEarnings } from './utils.js';
+import { generateDonutChart } from './utils.js';
 
-let statesArr = Object.values(statesNames);
+const selectElement = document.getElementById('state');
 
-// console.log(typeof states);
-// console.log(states);
+const urls = ['./data/taxes.json', './data/groceries_monthly_cost.json'];
 
-statesArr.forEach((state) => {
-  //console.log(state);
-  let option = document.createElement('option');
-  option.value = state;
-  option.textContent = state;
-  inputUI.state.appendChild(option);
-});
+// This function will fetch the JSON data from both files and return it as a JavaScript object
 
-const rate = 15;
-const hours = 32;
-const stateTax = 0.13;
-const housing = 100;
-const transportation = 50;
+const getData = async () => {
+  const [taxes, groceries] = await Promise.all(
+    urls.map(async (url) => {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    })
+  );
+
+  return { taxes, groceries };
+};
+
+const data = await getData();
+
+let statesData = data.taxes;
+let groceriesData = data.groceries;
+
+// console.log(groceriesData);
+
+// Loop through the states in the JSON file and add an option element for each one.
+
+for (let key in statesData) {
+  const optionElement = document.createElement('option');
+  optionElement.value = key;
+  optionElement.textContent = key;
+  selectElement.appendChild(optionElement);
+}
+
+const inputUI = {
+  rate: document.getElementById('rate'),
+  hours: document.getElementById('hours'),
+  state: document.getElementById('state'),
+  calcBtn: document.getElementById('calcBtn'),
+};
+
+const resultUI = {
+  resultsContainer: document.querySelector('.results-container'),
+  detailsContainer: document.querySelector('.details-container'),
+  fedTaxAmount: document.getElementById('fed-tax-amount'),
+  stateTaxRate: document.getElementById('state-tax-rate'),
+  stateTaxAmount: document.getElementById('state-tax-amount'),
+  totalTaxAmount: document.getElementById('total-income-tax'),
+  grossIncome: document.getElementById('gross-income-amount'),
+  foodResult: document.getElementById('monthly-food-cost'),
+  afterTaxIncome: document.getElementById('after-tax-income'),
+};
 
 inputUI.calcBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
-  const data = calculateEarnings(
-    rate,
-    hours,
-    stateTax,
-    housing,
-    transportation
+  const rate = inputUI.rate.value;
+  const hours = inputUI.hours.value;
+  const stateTaxRate = statesData[inputUI.state.value];
+  const groceries = groceriesData[inputUI.state.value];
+
+  const data = calculateEarnings(rate, hours, stateTaxRate, groceries);
+
+  resultUI.fedTaxAmount.textContent = data.federalTaxAmount;
+
+  resultUI.stateTaxRate.textContent = data.stateTaxRate;
+  resultUI.stateTaxAmount.textContent = parseFloat(data.stateTaxAmount).toFixed(
+    2
   );
 
-  // UI.grossPay.textContent = data.grossPay;
-  // UI.taxAmount.textContent = data.taxAmount;
-  // UI.expenses.textContent = data.expenses;
-  // UI.weeklyNetPay.textContent = data.weeklyNetPay;
-  resultUI.foodResult.textContent = data.weeklyFoodCost;
-  resultUI.totalResult.textContent = data.totalNetPay;
+  resultUI.grossIncome.textContent = parseFloat(data.grossPay).toFixed(2);
+  resultUI.totalTaxAmount.textContent = data.totalTaxAmount;
+  resultUI.foodResult.textContent = parseFloat(data.foodCost).toFixed(2);
+
+  resultUI.afterTaxIncome.textContent = parseFloat(data.afterTaxIncome).toFixed(
+    2
+  );
 
   resultUI.resultsContainer.classList.remove('hidden');
-
-  console.log(data);
 });
-
-console.log(statesArr);
-console.log(stateTaxes);

@@ -1,112 +1,89 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SummerCash: Summer Job AI Earnings Calculator</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="/js/app.js" type="module" defer></script>
-    <title>SWORKS: Summer Job Finder.</title>
   </head>
   <body>
-    <div class="main-container">
-      <div class="intro-container">
-        <div class="header">
-          <h1>Summer Job Finder<span class="period-span">!</span></h1>
-          <p class="subtitle">
-            Descubre cuanto dinero podrás hacer en tu summer job este verano.
-          </p>
-          <p>
-            Solo introduce la información que se encuentra en tu formulario de
-            trabajo y déjanos el calculo pesado a nosotros.
-          </p>
+    <div class="container">
+      <div class="header">
+        <h1>SummerCash: Summer Job Earnings Calculator</h1>
+      </div>
+      <div class="cta-text-container">
+        <h3>Unlock Your Summer Earnings Potential!</h3>
+        <p>
+          Are you an international student working in the US during summer
+          break? Wondering how much you can earn by the end of your summer job?
+          Our Summer Job Earnings Calculator has got you covered! Estimate your
+          potential earnings based on different variables like minimum salary,
+          hours worked, average cost of living, and opportunities for a second
+          job.
+        </p>
+        <p>
+          Make the most of your summer experience and plan ahead with our
+          easy-to-use calculator. Discover which states offer the best
+          opportunities for maximizing your income and ensure a rewarding summer
+          work adventure!
+        </p>
+        <p>
+          Get started now and make your summer job a financially rewarding
+          journey!
+        </p>
+      </div>
+
+      <div class="input-container">
+        <label for="rate">Hourly Rate</label>
+        <input type="number" id="rate" value="15" />
+        <label for="hours">Hours Worked</label>
+        <input type="number" id="hours" value="32" />
+        <label for="state">State</label>
+        <select id="state"></select>
+        <button id="calcBtn">Calculate</button>
+      </div>
+      <div class="results-container hidden">
+        <!-- <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div> -->
+        <div class="details-container">
+          <h3>Federal Taxes</h3>
+          <p>Tax Rate: <span id="fed-tax-rate">10%</span></p>
+          <p>Federal Income Tax: $<span id="fed-tax-amount"></span></p>
+          <hr />
+
+          <h3>State Taxes</h3>
+          <p>Tax Rate: <span id="state-tax-rate"></span>%</p>
+          <p>State Income Tax: $<span id="state-tax-amount"></span></p>
+          <hr />
+
+          <h3>Gross income: $<span id="gross-income-amount"></span></h3>
+          <h3>Total income tax: -$<span id="total-income-tax"></span></h3>
+          <p>Food Cost: -$<span id="monthly-food-cost"></span></p>
+
+          <hr />
+          <h2>After-Tax income: <span id="after-tax-income"></span></h2>
+          <hr />
+          <ul id="disclaimer">
+            <li>
+              The calculations on this website are estimates based on tax rates
+              as of January 2023 and data from the internet. These rates are
+              subject to change, so please check the IRS website for the latest
+              information.
+            </li>
+            <li>
+              Our calculator does not consider both 401(k) and IRA deductions
+              due to the tax law limitations.
+            </li>
+            <li>
+              You should speak with a tax professional to determine your
+              specific tax situation.
+            </li>
+          </ul>
         </div>
       </div>
-      <main>
-        <div class="form_container">
-          <form class="form">
-            <label for="hours">Horas a la semana</label>
-            <input type="number" name="hours" id="hours" placeholder="40" />
-
-            <label for="rate">Pago por hora</label>
-            <input type="number" name="rate" id="rate" placeholder="12" />
-
-            <label for="state">Estado</label>
-            <select title="state" id="state" name="state"></select>
-
-            <label for="housing">Pago semanal de vivienda?</label>
-            <input type="number" name="housing" id="housing" value="0" />
-
-            <label for="transport">Costo diario de transporte</label>
-            <input type="number" name="transport" id="transport" value="0" />
-
-            <!-- <label for="food">Costo de comida por día</label>
-            <input type="number" name="food" id="food" /> -->
-            <br />
-
-            <button type="submit" class="calc_btn">Calcular</button>
-          </form>
-        </div>
-        <div class="results-display-container">
-          <div class="results_container">
-            <h2>Resultados</h2>
-            <div class="results">
-              <div class="income-container">
-                <h3>Ingresos semanales.</h3>
-                <p class="reg_hours">
-                  Horas regulares: <span class="reg_hours_span"></span>
-                </p>
-                <p class="overtime_hours">
-                  Horas extras:<span class="overtime_hours_span"></span>
-                </p>
-              </div>
-              <div class="expenses-container">
-                <h3>Gastos semanales.</h3>
-                <p class="state_taxes">
-                  Impuesto Estatal: <span class="state_taxes_span"></span>
-                </p>
-                <p class="federal_taxes">
-                  Impuesto Federal:
-                  <span class="federal_taxes_span"></span>
-                </p>
-                <p class="food">
-                  Comida (Estimado según el IRS):
-                  <span class="food_span"></span>
-                </p>
-                <p class="housing">
-                  Pago de vivienda:
-                  <span class="housing_span"></span>
-                </p>
-                <p class="transport">
-                  Transporte:
-                  <span class="transport_span"></span>
-                </p>
-                <p class="other">
-                  Otros:
-                  <span class="others_span"></span>
-                </p>
-              </div>
-              <div class="gross-container">
-                <h3>Montos Brutos.</h3>
-                <p class="gross_income">
-                  Ingreso bruto:
-                  <span class="gross_income_span"></span>
-                </p>
-                <p class="gross_expenses">
-                  Gasto bruto:
-                  <span class="gross_expenses_span"></span>
-                </p>
-              </div>
-              <div class="net_container">
-                <h3>Monto Neto.</h3>
-                <p class="net_income">
-                  Ingreso neto:
-                  <span class="net_income_span"></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
     </div>
+
+    <script src="./js/app.js" type="module"></script>
   </body>
 </html>
