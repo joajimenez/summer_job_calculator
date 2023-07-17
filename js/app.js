@@ -87,4 +87,7 @@ inputUI.calcBtn.addEventListener('click', (e) => {
     parseFloat(data.afterTaxIncome).toFixed(2)
   );
   resultUI.resultsContainer.classList.remove('hidden');
+
+  window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+
 });
