@@ -64,15 +64,18 @@ inputUI.calcBtn.addEventListener('click', (e) => {
 
   const data = calculateEarnings(rate, hours, stateTaxRate, groceries);
 
-  resultUI.fedTaxAmount.textContent = data.federalTaxAmount;
-
+  resultUI.fedTaxAmount.textContent = parseFloat(data.federalTaxAmount).toFixed(
+    2
+  );
   resultUI.stateTaxRate.textContent = data.stateTaxRate;
   resultUI.stateTaxAmount.textContent = parseFloat(data.stateTaxAmount).toFixed(
     2
   );
 
   resultUI.grossIncome.textContent = parseFloat(data.grossPay).toFixed(2);
-  resultUI.totalTaxAmount.textContent = data.totalTaxAmount;
+  resultUI.totalTaxAmount.textContent = parseFloat(data.totalTaxAmount).toFixed(
+    2
+  );
   resultUI.foodResult.textContent = parseFloat(data.foodCost).toFixed(2);
 
   resultUI.afterTaxIncome.textContent = parseFloat(data.afterTaxIncome).toFixed(

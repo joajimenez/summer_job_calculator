@@ -34,11 +34,11 @@
       </div>
 
       <div class="input-container">
-        <label for="rate">Hourly Rate</label>
-        <input type="number" id="rate" value="15" />
-        <label for="hours">Hours Worked</label>
-        <input type="number" id="hours" value="32" />
-        <label for="state">State</label>
+        <label for="rate">Hourly rate (🤑)</label>
+        <input type="number" id="rate" placeholder="7.25" value="7.25"/>
+        <label for="hours">Hours worked per week (⌚)</label>
+        <input type="number" id="hours" placeholder="32" value="32"/>
+        <label for="state">State (🇺🇸)</label>
         <select id="state"></select>
         <button id="calcBtn">Calculate</button>
       </div>
@@ -48,23 +48,30 @@
         </div> -->
         <div class="details-container">
           <h3>Federal Taxes</h3>
-          <p>Tax Rate: <span id="fed-tax-rate">10%</span></p>
-          <p>Federal Income Tax: $<span id="fed-tax-amount"></span></p>
+          <p>Tax rate: <span id="fed-tax-rate">10%</span></p>
+          <p>Tax amount: $<span id="fed-tax-amount"></span></p>
           <hr />
 
           <h3>State Taxes</h3>
-          <p>Tax Rate: <span id="state-tax-rate"></span>%</p>
-          <p>State Income Tax: $<span id="state-tax-amount"></span></p>
+          <p>Tax rate: <span id="state-tax-rate"></span>%</p>
+          <p>Tax amount: $<span id="state-tax-amount"></span></p>
           <hr />
 
-          <h3>Gross income: $<span id="gross-income-amount"></span></h3>
-          <h3>Total income tax: -$<span id="total-income-tax"></span></h3>
-          <p>Food Cost: -$<span id="monthly-food-cost"></span></p>
+          <h3>Gross Income</h3>
+          <p>Total amount you will earn: $<span id="gross-income-amount"></span></p>
+
+          <h3>Total Income Tax</h3>
+          <p>Amount of federal and state taxes you will pay: -$<span id="total-income-tax"></span></p>
+
+          <h3>Food Cost</h3>
+          <p>Amount you will spend on food: -$<span id="monthly-food-cost"></span></h>
 
           <hr />
-          <h2>After-Tax income: <span id="after-tax-income"></span></h2>
-          <hr />
+          <h3>After-Tax Income</h3>
+          <p>Amount of money you have will have at the end of the Summer: <span id="after-tax-income"></span></p>
+          
           <ul id="disclaimer">
+            Disclaimer:
             <li>
               The calculations on this website are estimates based on tax rates
               as of January 2023 and data from the internet. These rates are

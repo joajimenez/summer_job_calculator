@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@600&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +8,7 @@
 
 body {
   background-color: #ffffff;
-  font-family: sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .container {
@@ -16,11 +18,15 @@ body {
   width: 100%;
 }
 
+.header {
+  background-color: #000000;
+  color: #ffffff;
+  padding-bottom: 4rem;
+}
+
 .cta-text-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 10px;
 }
 h1,
@@ -31,6 +37,15 @@ h5,
 h6,
 p {
   margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Rubik', sans-serif;
 }
 
 .header {
@@ -50,15 +65,19 @@ select {
   width: 100%;
   padding: 10px;
   border: 1px solid #000000;
+  border-radius: 0.4rem;
 }
 
 button {
-  background-color: #000000;
+  background-color: #ff4800;
   color: #ffffff;
   padding: 10px;
   border: none;
   cursor: pointer;
   margin-top: 1rem;
+  border-radius: 0.4rem;
+  font-weight: bolder;
+  font-size: larger;
 }
 
 .results-container {
@@ -75,4 +94,9 @@ button {
 
 .hidden {
   display: none;
+}
+
+#after-tax-income {
+  font-size: 2rem;
+  font-weight: bolder;
 }
