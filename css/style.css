@@ -99,3 +99,8 @@ button {
   text-decoration: underline;
   text-decoration-color: #ff4800;
 }
+
+footer {
+  padding: 5px;
+  margin-top: 1rem;
+}
