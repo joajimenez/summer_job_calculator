@@ -18,9 +18,8 @@ body {
   width: 100%;
 }
 
-.header {
-  background-color: #000000;
-  color: #ffffff;
+.container > header {
+  background-color: #ff4800;
   padding-bottom: 4rem;
 }
 
@@ -34,9 +33,12 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
+h6 {
   margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 0.7rem;
 }
 
 h1,
@@ -46,12 +48,6 @@ h4,
 h5,
 h6 {
   font-family: 'Rubik', sans-serif;
-}
-
-.header {
-  background-color: #000000;
-  color: #ffffff;
-  padding: 10px;
 }
 
 .input-container {
@@ -99,4 +95,6 @@ button {
 #after-tax-income {
   font-size: 2rem;
   font-weight: bolder;
+  text-decoration: underline;
+  text-decoration-color: #ff4800;
 }

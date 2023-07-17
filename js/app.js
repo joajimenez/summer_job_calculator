@@ -1,11 +1,13 @@
 import { calculateEarnings } from './utils.js';
-import { generateDonutChart } from './utils.js';
+
+// Number formatter
+
+const nf = new Intl.NumberFormat('en-US');
 
 const selectElement = document.getElementById('state');
 
-const urls = ['./data/taxes.json', './data/groceries_monthly_cost.json'];
-
 // This function will fetch the JSON data from both files and return it as a JavaScript object
+const urls = ['./data/taxes.json', './data/groceries_monthly_cost.json'];
 
 const getData = async () => {
   const [taxes, groceries] = await Promise.all(
@@ -72,15 +74,17 @@ inputUI.calcBtn.addEventListener('click', (e) => {
     2
   );
 
-  resultUI.grossIncome.textContent = parseFloat(data.grossPay).toFixed(2);
+  resultUI.grossIncome.textContent = nf.format(
+    parseFloat(data.grossPay).toFixed(2)
+  );
   resultUI.totalTaxAmount.textContent = parseFloat(data.totalTaxAmount).toFixed(
     2
   );
+
   resultUI.foodResult.textContent = parseFloat(data.foodCost).toFixed(2);
 
-  resultUI.afterTaxIncome.textContent = parseFloat(data.afterTaxIncome).toFixed(
-    2
+  resultUI.afterTaxIncome.textContent = nf.format(
+    parseFloat(data.afterTaxIncome).toFixed(2)
   );
-
   resultUI.resultsContainer.classList.remove('hidden');
 });
