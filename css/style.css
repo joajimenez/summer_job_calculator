@@ -78,12 +78,12 @@ button {
   padding: 10px;
   border: none;
   cursor: pointer;
-  margin-top: 1rem;
   border-radius: 0.4rem;
-  font-weight: bolder;
-  font-size: larger;
-  width: 80%;
+  width: 93%;
   border: 2px solid #ff4800;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  font-size: larger;
 }
 
 button:hover {
