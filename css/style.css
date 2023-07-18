@@ -115,6 +115,12 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  header {
+    padding-bottom: 7rem;
+    padding-left: 12.5rem;
+    font-size: xx-large;
+  }
+
   .container {
     width: 80%;
     display: flex;
@@ -127,7 +133,7 @@ footer {
   .input-group-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   input,
@@ -151,6 +157,10 @@ footer {
   .btn-container > #calcBtn {
     width: 50%;
     margin-bottom: 1rem;
+  }
+
+  .btn-container > button {
+    width: 40%;
   }
 
   .inputs-container-el {
