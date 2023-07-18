@@ -155,12 +155,9 @@ footer {
   }
 
   .btn-container > #calcBtn {
-    width: 50%;
+    width: 30%;
     margin-bottom: 1rem;
-  }
-
-  .btn-container > button {
-    width: 40%;
+    font-size: x-large;
   }
 
   .inputs-container-el {
