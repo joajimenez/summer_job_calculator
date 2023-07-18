@@ -83,6 +83,13 @@ button {
   font-weight: bolder;
   font-size: larger;
   width: 80%;
+  border: 2px solid #ff4800;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: #ff4800;
+  border: 2px solid #ff4800;
 }
 
 .results-container {
@@ -159,12 +166,6 @@ footer {
     width: 30%;
     margin-bottom: 1rem;
     font-size: x-large;
-  }
-
-  #calcBtn:hover {
-    background-color: #ffffff;
-    color: #ff4800;
-    border: 0px solid #ff4800;
   }
 
   .inputs-container-el {
