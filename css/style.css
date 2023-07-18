@@ -69,6 +69,7 @@ select {
 .btn-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 button {
@@ -158,6 +159,12 @@ footer {
     width: 30%;
     margin-bottom: 1rem;
     font-size: x-large;
+  }
+
+  #calcBtn:hover {
+    background-color: #ffffff;
+    color: #ff4800;
+    border: 0px solid #ff4800;
   }
 
   .inputs-container-el {
