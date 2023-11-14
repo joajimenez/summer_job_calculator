@@ -66,6 +66,14 @@ select {
   margin-bottom: 1rem;
 }
 
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  box-shadow: none;
+}
+
 .btn-container {
   display: flex;
   justify-content: center;
